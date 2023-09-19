@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     protected static WebDriver driver; //1 única instancia de WebDriver
     private static WebDriverWait wait; //Espera máxima del WebDriver para encontrar lo que busca, si no lo encuentra tira excepción
+    private static Actions action;
     
     static{
         //Configuración ChromeDriver
@@ -81,5 +83,20 @@ public class BasePage {
         Select dropDown = new Select(find(locator));
 
         dropDown.selectByVisibleText(valueToSelect);
+    }
+
+    //Función para hacer un hoverOver (pasar por encima de un elemento)
+    public void hoverOverElement(String locator){
+        action.moveToElement(find(locator));
+    }
+
+    //Función para hacer un doble click
+    public void doubleClick(String locator){
+        action.doubleClick(find(locator));
+    }
+
+    //Función para hacer click derecho
+    public void rightClick(String locator){
+        action.contextClick(find(locator));
     }
 }
