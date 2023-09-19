@@ -1,5 +1,11 @@
+#Binary files from builds
+bin/
+
 # Compiled class file
 *.class
+
+# Gradle Build Files
+.gradle/
 
 # Log file
 *.log
