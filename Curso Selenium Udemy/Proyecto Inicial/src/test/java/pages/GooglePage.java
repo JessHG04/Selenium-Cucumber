@@ -16,7 +16,7 @@ public class GooglePage extends BasePage {
     }
 
     public void clickGoogleSearch(){
-        clickElement(searchButton);
+        clickElement(searchButton);  
     }
 
     public void enterSearchCriteria(String criteria){
