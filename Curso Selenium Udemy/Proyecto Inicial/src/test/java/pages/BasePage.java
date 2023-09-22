@@ -97,6 +97,35 @@ public class BasePage {
 
     //Función para hacer click derecho
     public void rightClick(String locator){
-        action.contextClick(find(locator));
+        action.contextClick(find(locator)); 
+    }
+    
+    //Obtener un valor de una celda de una tabla
+    public String getValueFromTable(String locator, int row, int column){
+        String cell = locator + "/table/tbody/tr[" + row + "]/td[" + column + "]";
+
+        return find(cell).getText();
+    }
+
+    //Escribir un valor en una celda de una tabla
+    public void setValueOnTable(String locator, int row, int column, String text){
+        String cellToFill = locator + "/table/tbody/tr[" + row + "]/td[" + column + "]";
+        
+        find(cellToFill).sendKeys(text);
+    }
+
+    //Cambiar la ventana en la que actúa Selenium (para iFrames, como vídeos incrustados)
+    public void switchToiFrame(int iFrameIndex){
+        driver.switchTo().frame(iFrameIndex);
+    }
+
+    //Volver a la ventana padre, la principal
+    public void switchToParentFrame (){
+        driver.switchTo().parentFrame();
+    }
+
+    //Denegar una alerta de un pop-up
+    public void dimissAlert(){
+        driver.switchTo().alert().dismiss();
     }
 }
