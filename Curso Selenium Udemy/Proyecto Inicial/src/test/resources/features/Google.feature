@@ -4,8 +4,17 @@
 
 Feature: Test Google search funcionality
 
-Scenario: As a user I enter a search criteria in Google
+Rule: The user can enter a search criteria and the app have to return results.
+
+#@Test @Smoke @Regression
+@Test
+Scenario Outline: As a user I enter a search criteria in Google
     Given I am on the Google search page
-    When I enter a search criteria
+    When I enter the search criteria: <searchCriteria>
     And Click on the search button
-    Then The results match the criteria
+    Then The browser show the results
+
+    Examples:
+    |searchCriteria |
+    |Gato           |
+    |Silla          |

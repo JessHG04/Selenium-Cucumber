@@ -3,6 +3,7 @@ package steps;
 
 //Import de Cucumber
 import io.cucumber.java.en.*;
+//import org.junit.Assert;
 import pages.GooglePage;
 
 public class GoogleSteps {
@@ -14,9 +15,9 @@ public class GoogleSteps {
         google.navigateToGoogle();
     }
 
-    @When("^I enter a search criteria$")
-    public void enterSearchCriteria(){
-        google.enterSearchCriteria("Gato");
+    @When("^I enter the search criteria: (.+)$")
+    public void enterSearchCriteria(String searchCriteria){
+        google.enterSearchCriteria(searchCriteria);
     }
 
     @And("^Click on the search button$")
@@ -24,9 +25,9 @@ public class GoogleSteps {
         google.clickGoogleSearch();
     }
 
-    @Then("^The results match the criteria$")
+    @Then("^The browser show the results$")
     public void validateResults(){
-
+        //Assert.assertEquals("Texto que esperamos", google.firstResult());
     }
 
 }

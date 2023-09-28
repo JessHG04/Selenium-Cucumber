@@ -4,6 +4,7 @@ public class GooglePage extends BasePage {
     private String acceptCookiesId = "L2AGLb";
     private String searchTextField = "//*[@id=\"APjFqb\"]";
     private String searchButton = "//input[@value='Buscar con Google']";
+    private String firstResult = "";
     
 
     public GooglePage(){
@@ -21,5 +22,9 @@ public class GooglePage extends BasePage {
 
     public void enterSearchCriteria(String criteria){
         write(searchTextField, criteria);
+    }
+
+    public String firstResult(){
+        return textFromElement(firstResult);
     }
 }

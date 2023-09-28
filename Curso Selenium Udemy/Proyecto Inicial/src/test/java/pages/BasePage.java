@@ -128,4 +128,15 @@ public class BasePage {
     public void dimissAlert(){
         driver.switchTo().alert().dismiss();
     }
+
+    //Devuelve el texto de un elemento
+    public String textFromElement(String locator){
+        return find(locator).toString();
+    }
+
+    //Cierra el navegador
+    public static void closeBrowser(){
+        driver.quit();
+    }
+    
 }
